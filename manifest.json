@@ -1,0 +1,25 @@
+{
+  "manifest_version": 2,
+
+  "name": "Masochist Tabs",
+  "description": "This extension deletes your window if you have too many tabs.",
+  "version": "1.0",
+
+  "background": {
+    "scripts": ["js/background.js"],
+    "persistent": false
+  },
+
+  "icons": { "16": "icons/mt16.png",
+           "48": "icons/mt48.png",
+          "128": "icons/mt128.png" },
+
+  "browser_action": {
+    "default_icon": "icons/mt48.png",
+    "default_popup": "popup.html"
+  },
+  "permissions": [
+    "tabs",
+    "https://ajax.googleapis.com/"
+  ]
+}
