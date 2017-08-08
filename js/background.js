@@ -1,14 +1,17 @@
 
 function destroyWindows(){
-	chrome.tabs.query({'currentWindow': true},function(tabs){
-
-	})
-
 	chrome.windows.getCurrent({'populate': true}, function(currentWindow){
 		let numTabs = currentWindow.tabs.length;
-		if(numTabs > 6){
-			chrome.windows.remove(currentWindow.id)
-		}
+		chrome.storage.local.get(function(tabLimit){
+			let limit = 6
+			if(tabLimit['masochist-tabs-tab-count']){
+				limit = tabLimit['masochist-tabs-tab-count']
+			}
+			if(numTabs > limit){
+				chrome.windows.remove(currentWindow.id)
+			}
+		})
+
 	})
 }
 
