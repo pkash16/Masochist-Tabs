@@ -10,6 +10,9 @@ function destroyWindows(){
 			if(numTabs > limit){
 				chrome.windows.remove(currentWindow.id)
 			}
+			if (numTabs == limit){
+				chrome.notifications.create(null, {"type": "basic", "title": "Masochist Tabs, WARNING", "message": "Be careful! One more tab and you'll overextend you limit and your browser will close!", "iconUrl": "icons/mt128.png"}, function(notifiactionId){});			
+			}
 		})
 
 	})
