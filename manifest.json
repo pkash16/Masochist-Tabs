@@ -2,8 +2,8 @@
   "manifest_version": 2,
 
   "name": "Masochist Tabs",
-  "description": "This extension deletes your window if you have too many tabs! Set an amount of tabs you want as your limit, and if you go over your browser will close, and you'll lose ALL your data! Masochist tabs was developed to use a more brute-force way to help teach better tab management.",
-  "version": "1.0",
+  "description": "Masochist tabs was developed to use a more brute-force way to help teach better tab management.",
+  "version": "0.1",
 
   "background": {
     "scripts": ["js/background.js"],
