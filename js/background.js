@@ -4,6 +4,7 @@ function destroyWindows(){
 		let numTabs = currentWindow.tabs.length;
 		chrome.storage.local.get(function(tabLimit){
 			let limit = 6
+			let checked = tabLimit['masochist-tabs-checked']
 			if(tabLimit['masochist-tabs-tab-count']){
 				limit = tabLimit['masochist-tabs-tab-count']
 			}
@@ -11,7 +12,9 @@ function destroyWindows(){
 				chrome.windows.remove(currentWindow.id)
 			}
 			if (numTabs == limit){
-				chrome.notifications.create(null, {"type": "basic", "title": "Masochist Tabs, WARNING", "message": "Be careful! One more tab and you'll overextend you limit and your browser will close!", "iconUrl": "icons/mt128.png"}, function(notifiactionId){});			
+				if(checked){
+					chrome.notifications.create(null, {"type": "basic", "title": "Masochist Tabs, WARNING", "message": "Be careful! One more tab and you'll overextend you limit and your browser will close!", "iconUrl": "icons/mt128.png"}, function(notifiactionId){});			
+				}
 			}
 		})
 
